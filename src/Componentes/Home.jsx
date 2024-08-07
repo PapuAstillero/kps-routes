@@ -1,14 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AlumnoCtx } from '../context/AlumnoContext';
 
-function Home({ data, helpers }) {
-	const { nuevoAlumno, setNuevoAlumnno, handleSubmit, fetchData } = helpers;
-
-	const handleClick = async (alumnoId) => {
-		await fetch(`http://localhost:3000/students/${alumnoId}`, {
-			method: 'DELETE',
-		});
-		fetchData();
-	};
+function Home({ data }) {
+	const { nuevoAlumno, setNuevoAlumnno, handleSubmit, handleClick } =
+		useContext(AlumnoCtx);
 
 	return (
 		<>
